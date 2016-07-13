@@ -1,0 +1,53 @@
+<html>
+<head>
+<style>
+.title1 {
+  background: #9999ff;
+  font-size: 48px;
+  color: #ffffcc;
+  text-align: center;
+  font-style: fantasy
+}
+div {
+    background: #cce6ff;
+    padding: 14px
+    height: 200px;
+    width: 500px;
+}
+p.capitalize {
+    text-transform: capitalize;
+}
+a:link, a:visited {
+    color: #f44336;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+</style>
+</head>
+
+<body>
+  <h1 class="title1"> POST </h1>  
+  <p class="title2"> LETS PLAY!</p>
+
+      <% @articles.each do |article| %>
+    <div>
+        <p class="capitalize">
+        <%= article.title %>
+        <br> 
+        <br>   
+        <%= article.text %>
+        </p>
+        <%= link_to 'Show', article_path(article) %>
+        <%= link_to 'Edit', edit_article_path(article) %>
+        <%= link_to 'Destroy', article_path(article),
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div> 
+      <% end %>
+</body>
+
+   <%= link_to 'New article', new_article_path %>
+
+
+
+
